@@ -1,2 +1,2 @@
-# Project-tech23
-Project tech 22-23 repository
+# project-tech23
+project tech 22-23 repository
