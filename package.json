@@ -1,0 +1,24 @@
+{
+  "name": "project-tech",
+  "version": "1.0.0",
+  "description": "This is a project for blok tech 2023",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Matthew-Tangk/project-tech23.git"
+  },
+  "author": "matthew tangkilissan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Matthew-Tangk/project-tech23/issues"
+  },
+  "homepage": "https://github.com/Matthew-Tangk/project-tech23#readme",
+  "dependencies": {
+    "camelcase": "^7.0.1",
+    "express": "^4.18.2"
+  }
+}
