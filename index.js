@@ -1,27 +1,30 @@
-console.log('This is a testrun.')
+console.log('This is a testrun.');
+const express = require('express');
+const app = express();
 
-const express = require('express')
+app
+  .use(express.static('static'))
+  .set('view engine', 'ejs')
+  .set('views', 'views')
 
-express()
-    .get('/', onhome)
-    .get('/about', onabout)
-    .get('/test', onatest)
+  .get('/metallica', (req, res) => {res.render('index.ejs');})
+  .get('/about', (req, res) => {res.send('<h1>About me</h1>');})
+  .get('/login', (req, res) => {res.send('<h1>This is the login page.</h1>');})
+  .get('/test', (req, res) => {res.render('test.ejs');})
+  
+  
 
-    .use(express.static('static'))
-    .set('view engine', 'ejs')
-    .set('views', 'views')
+  .listen(420);
 
+function onhome(req, res) {
+  res.send('<h1>This is a testrun.</h1>');
+}
 
-    .listen(420)
+function onlogin(req, res) {
+  res.send('<h1>This is the login page.</h1>');
+}
 
-    function onhome(req, res) {
-        res.send('<h1>This is a testrun.</h1>')
-    }
+function onabout(req, res) {
+  res.send('<h1>About me</h1>');
+}
 
-    function onabout(req, res) {
-        res.send('<h1>About me</h1>')
-    }
-
-    function onatest(req, res){
-        res.render ('test.ejs') 
-    }
