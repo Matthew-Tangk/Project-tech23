@@ -21,6 +21,10 @@ app
     res.render("qForm.ejs");
   })
 
+  .get("/upload", (req, res) => {
+    res.render("upload.ejs");
+  })
+
   .listen(420);
 
 function onhome(req, res) {

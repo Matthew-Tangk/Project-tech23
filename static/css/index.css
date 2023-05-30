@@ -1,7 +1,3 @@
-h1{
-    color: rgb(196,144,209);
-}
-
 html, body {
     margin: 0;
     padding: 0;
@@ -24,7 +20,7 @@ div img{
 }
 
 h1{
-    color: #BB91CC;
+    color: red;
     font-family: 'Macondo', cursive;
     font-family: 'Nunito', sans-serif;  
     margin-left: 10px;
@@ -97,6 +93,9 @@ button{
     display: block;
     margin: auto;
     margin-top: 50px;
+    margin-bottom: 20px;
+
+   text-decoration: none;
 }
 
 label{
@@ -113,5 +112,23 @@ input{
     margin: 10px 20px;
 }
 
+#uploadHeader{
+    font-size: 1.2em;
+    margin-top: 10%;
+   
+}
+
+#container{
+
+    height: 12em;
+    width: 20em;
+
+    border: 4px dashed #A93E68;
+
+    margin: 20% 45px 0;
+    
+    display: flex;
+    justify-content: center;
 
 
+}
