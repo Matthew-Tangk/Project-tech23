@@ -34,5 +34,3 @@ function onlogin(req, res) {
 function onabout(req, res) {
   res.send("<h1>About me</h1>");
 }
-
-console.log("Hello world!");
