@@ -1,9 +1,9 @@
 <%- include('partials/head.ejs') %>
   <body>
-    <header></header>
+    
     <main>
       <h2 id="uploadHeader">
-        Please select up to three files that showcase your skill level and
+        Please select the files that showcase your skill level and
         experience and upload these in the box below
       </h2>
 
@@ -13,18 +13,20 @@
           <label for="fileInput" id="uploadButton">Upload files here</label>
         </form>
       </div>
+
+      <p id="notification"></p>
+
       <a href="./finish">
         <button id="confirm">Confirm answers and apply</button>
       </a>
+      <div id="fileContentContainer"></div>
+      
+      
+
+      
+
     </main>
-    <footer></footer>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-          document.getElementById("uploadButton").addEventListener("click", function() {
-            document.getElementById("fileInput").click();
-          });
-        });
-      </script>
+       <script src="js/script.js"></script>
   </body>
 </html>
 

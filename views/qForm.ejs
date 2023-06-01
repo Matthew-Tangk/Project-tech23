@@ -1,82 +1,57 @@
+<%- include('partials/head.ejs') %>
+<body>
+  
+  <main>
+    <h1>Please answer the following questions</h1>
 
-  <%- include('partials/head.ejs') %>
-  <body>
-    <header></header>
-    <main>
-      <h1>Please answer the following questions</h1>
+    <div >
+      <h2>Which instruments do you play?</h2>
+      <ul id="inputForm">
+        <li><input type="radio" name="instrument" value="electric-guitar" />Electric guitar</li>
+        <li><input type="radio" name="instrument" value="bass-guitar" />Bass guitar</li>
+        <li><input type="radio" name="instrument" value="drums" />Drums</li>
+        <li><input type="radio" name="instrument" value="keyboard" />Keyboard</li>
+        <li><input type="radio" name="instrument" value="other" /><input type="text" name="instrument-other" placeholder="Other" /></li>
+      </ul>
+    </div>
 
-      <div>
-        <h2>Which instruments do you play?</h2>
-        <label>Electric guitar</label>
-        <input type="radio" name="instrument" />
+    <div>
+      <h2>Have you taken lessons?</h2>
+      <ul id="inputForm">
+        <li><input type="radio" name="lessons" value="more-than-3-years" />Yes, for more than 3 years</li>
+        <li><input type="radio" name="lessons" value="more-than-2-years" />Yes, for more than 2 years</li>
+        <li><input type="radio" name="lessons" value="over-a-year" />Yes, for over a year</li>
+        <li><input type="radio" name="lessons" value="self-taught" />No, I am self-taught</li>
+        <li><input type="radio" name="lessons" value="other" /><input type="text" name="lessons-other" placeholder="Other" /></li>
+      </ul>
+    </div>
 
-        <label>Bass guitar</label>
-        <input type="radio" name="instrument" />
+    <div>
+      <h2>Are you currently in a band?</h2>
+      <ul id="inputForm">
+        <li><input type="radio" name="bands" value="multiple-bands" />Yes, I am in multiple bands</li>
+        <li><input type="radio" name="bands" value="currently-in-band" />Yes, I am currently in a band</li>
+        <li><input type="radio" name="bands" value="not-in-band" />No, I am currently not in a band</li>
+        <li><input type="radio" name="bands" value="never-been-in-band" />No, I have never been in a band</li>
+        <li><input type="radio" name="bands" value="other" /><input type="text" name="bands-other" placeholder="Other" /></li>
+      </ul>
+    </div>
 
-        <label>Drums</label>
-        <input type="radio" name="instrument" />
+    <div>
+      <h2>Have you played live before?</h2>
+      <ul id="inputForm">
+        <li><input type="radio" name="live" value="played-before" />Yes, I have played live before</li>
+        <li><input type="radio" name="live" value="played-once" />Yes, but only once</li>
+        <li><input type="radio" name="live" value="never-played" />No, I have never played live before</li>
+        <li><input type="radio" name="live" value="never-been-in-band" />No, I have never been in a band</li>
+      </ul>
+    </div>
 
-        <label>Keyboard</label>
-        <input type="radio" name="instrument" />
-
-        <label>Other </label>
-        <input type="text" name="instrument" />
-      </div>
-
-      <div>
-        <h2>Have you taken lessons?</h2>
-        <label>Yes, for more than 3 years</label>
-        <input type="radio" name="lessons" />
-
-        <label>Yes, for more than 2 yearsr</label>
-        <input type="radio" name="lessons" />
-
-        <label>Yes, for over a year</label>
-        <input type="radio" name="lessons" />
-
-        <label>no, I am self taught</label>
-        <input type="radio" name="lessons" />
-
-        <label>Other </label>
-        <input type="text" name="lessons" />
-      </div>
-
-      <div>
-        <h2>Are you currently in a band?</h2>
-        <label>Yes, I am in multiple bands</label>
-        <input type="radio" name="bands" />
-
-        <label>Yes, I am currently in a band</label>
-        <input type="radio" name="bands" />
-
-        <label>No, I am currently not in a band</label>
-        <input type="radio" name="bands" />
-
-        <label>No, I have never been in a band</label>
-        <input type="radio" name="bands" />
-
-        <label>Other </label>
-        <input type="text" name="bands" />
-      </div>
-
-      <div id="myForm">
-        <h2>Have you played live before?</h2>
-        <label>Yes, I have played live before</label>
-        <input type="radio" name="live" />
-
-        <label>Yes, but only once</label>
-        <input type="radio" name="live" />
-
-        <label>No, I have never played live before</label>
-        <input type="radio" name="live" />
-
-        <label>No, I have never been in a band</label>
-        <input type="radio" name="live" />
-
-        <a href="./upload">
-          <button>Confirm answers</button>
-        </a>
-      </div>
-    </main>
-  </body>
+    <div id="myForm">
+      <a href="./upload">
+        <button>Confirm answers</button>
+      </a>
+    </div>
+  </main>
+</body>
 </html>

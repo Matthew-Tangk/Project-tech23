@@ -92,7 +92,6 @@ button{
 
     display: block;
     margin: auto;
-
     margin-top: 10px;
     text-decoration: none;
 }
@@ -171,3 +170,18 @@ input{
 a{
   text-decoration: none;
 }
+
+#inputForm {
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#inputForm li{
+    margin: 0.5em;
+    
+}
+
+#fileContentContainer{
+    display: none;
+}
+
