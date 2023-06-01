@@ -1,18 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="css/index.css" rel="stylesheet" />
-    <title>question_formFP</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Macondo&family=Nunito:wght@200;400&display=swap"
-      rel="stylesheet"
-    />
-  </head>
+<%- include('partials/head.ejs') %>
   <body>
     <header></header>
     <main>
@@ -21,12 +7,24 @@
         experience and upload these in the box below
       </h2>
 
-      <div id="container">
-        <button id="uploadButton">blabloa</button>
+    <div id="container">
+        <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
+          <input type="file" name="files" id="fileInput" multiple style="display: none;" />
+          <label for="fileInput" id="uploadButton">Upload files here</label>
+        </form>
       </div>
-
-      <button>Confirm answers and apply</button>
+      <a href="./finish">
+        <button id="confirm">Confirm answers and apply</button>
+      </a>
     </main>
     <footer></footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          document.getElementById("uploadButton").addEventListener("click", function() {
+            document.getElementById("fileInput").click();
+          });
+        });
+      </script>
   </body>
 </html>
+

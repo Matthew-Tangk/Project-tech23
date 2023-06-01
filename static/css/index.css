@@ -20,7 +20,7 @@ div img{
 }
 
 h1{
-    color: red;
+    color: #BB91CC;
     font-family: 'Macondo', cursive;
     font-family: 'Nunito', sans-serif;  
     margin-left: 10px;
@@ -92,10 +92,9 @@ button{
 
     display: block;
     margin: auto;
-    margin-top: 50px;
-    margin-bottom: 20px;
 
-   text-decoration: none;
+    margin-top: 10px;
+    text-decoration: none;
 }
 
 label{
@@ -107,6 +106,11 @@ label{
     display: flex;
 
 }   
+
+
+#myForm{
+    margin-bottom: 200px;
+}
 
 input{
     margin: 10px 20px;
@@ -131,4 +135,39 @@ input{
     justify-content: center;
 
 
+}
+
+#uploadButton{
+    background-color: white;
+    color: grey;
+    border: dashed grey;
+    border-radius: 10px;
+    padding: 5px 70px;
+
+    font-size: 1.2em;
+    font-family: 'Macondo', cursive;
+    font-family: 'Nunito', sans-serif;
+
+    display: block;
+    margin: auto;
+    margin-top: 4em;
+    text-decoration: none;
+}
+
+#confirm{
+    width: 70%;
+    font-size: 1em;
+    padding: 5px 20px;
+    margin-top: 4em;
+    
+}
+
+#done{
+    display:flex;
+    justify-content: center;
+    margin-top: 50%;
+}
+
+a{
+  text-decoration: none;
 }

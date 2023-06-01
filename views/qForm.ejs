@@ -1,18 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="css/index.css" rel="stylesheet" />
-    <title>question_formFP</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Macondo&family=Nunito:wght@200;400&display=swap"
-      rel="stylesheet"
-    />
-  </head>
+
+  <%- include('partials/head.ejs') %>
   <body>
     <header></header>
     <main>
@@ -21,78 +8,75 @@
       <div>
         <h2>Which instruments do you play?</h2>
         <label>Electric guitar</label>
-        <input type="radio" name="options" />
+        <input type="radio" name="instrument" />
 
         <label>Bass guitar</label>
-        <input type="radio" name="options" />
+        <input type="radio" name="instrument" />
 
         <label>Drums</label>
-        <input type="radio" name="options" />
+        <input type="radio" name="instrument" />
 
         <label>Keyboard</label>
-        <input type="radio" name="options" />
+        <input type="radio" name="instrument" />
 
         <label>Other </label>
-        <input type="text" name="other" />
+        <input type="text" name="instrument" />
       </div>
 
       <div>
         <h2>Have you taken lessons?</h2>
         <label>Yes, for more than 3 years</label>
-        <input type="radio" name="options" />
+        <input type="radio" name="lessons" />
 
         <label>Yes, for more than 2 yearsr</label>
-        <input type="radio" name="options" />
+        <input type="radio" name="lessons" />
 
         <label>Yes, for over a year</label>
-        <input type="radio" name="options" />
+        <input type="radio" name="lessons" />
 
         <label>no, I am self taught</label>
-        <input type="radio" name="options" />
+        <input type="radio" name="lessons" />
 
         <label>Other </label>
-        <input type="text" name="other" />
+        <input type="text" name="lessons" />
       </div>
 
       <div>
         <h2>Are you currently in a band?</h2>
         <label>Yes, I am in multiple bands</label>
-        <input type="radio" name="options" />
+        <input type="radio" name="bands" />
 
         <label>Yes, I am currently in a band</label>
-        <input type="radio" name="options" />
+        <input type="radio" name="bands" />
 
         <label>No, I am currently not in a band</label>
-        <input type="radio" name="options" />
+        <input type="radio" name="bands" />
 
         <label>No, I have never been in a band</label>
-        <input type="radio" name="options" />
+        <input type="radio" name="bands" />
 
         <label>Other </label>
-        <input type="text" name="other" />
+        <input type="text" name="bands" />
       </div>
 
       <div id="myForm">
         <h2>Have you played live before?</h2>
         <label>Yes, I have played live before</label>
-        <input type="radio" name="options" />
+        <input type="radio" name="live" />
 
         <label>Yes, but only once</label>
-        <input type="radio" name="options" />
+        <input type="radio" name="live" />
 
         <label>No, I have never played live before</label>
-        <input type="radio" name="options" />
+        <input type="radio" name="live" />
 
         <label>No, I have never been in a band</label>
-        <input type="radio" name="options" />
+        <input type="radio" name="live" />
 
-        <label>Other </label>
-        <input type="text" name="other" />
+        <a href="./upload">
+          <button>Confirm answers</button>
+        </a>
       </div>
-
-      <a href="./upload">
-        <button>NEXT</button>
-      </a>
     </main>
   </body>
 </html>
