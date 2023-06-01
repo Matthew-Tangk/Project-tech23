@@ -1,8 +1,8 @@
 console.log("Welcome to FastPass");
 const express = require("express");
 const app = express();
-const multer = require("multer");
 
+const multer = require("multer");
 const upload = multer({ dest: "uploads/" });
 
 app
