@@ -1,14 +1,15 @@
-<%- include('partials/head.ejs') %>
+<%- include('partials/head') %>
   <body>
+    <%- include('partials/header') %>
     <main>
-      <div>
-        <img src="img/metallica_header.png" alt="metallica_header" />
-      </div>
+      <section>
+        <img src="img/metallica_header.png" alt="metallica poster" />
+      </section>
 
       <ul>
-        <li id="rock">Rock</li>
-        <li id="drummer">Drummer</li>
-        <li id="longstanding">Longstanding</li>
+        <li>Rock</li>
+        <li >Drummer</li>
+        <li >Longstanding</li>
       </ul>
 
       <h2>The most influential band in rock history is looking for you!</h2>
@@ -31,5 +32,6 @@
         <button>SIGN UP</button>
       </a>
     </main>
+    <%- include('partials/footer') %>
   </body>
 </html>

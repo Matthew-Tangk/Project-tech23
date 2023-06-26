@@ -1,18 +1,25 @@
-<%- include('partials/head.ejs') %>
+<%- include('partials/head') %>
   <body>
-    
+    <%- include('partials/header') %>
     <main>
       <h2 id="uploadHeader">
         Please select the files that showcase your skill level and
         experience and upload these in the box below
       </h2>
 
-    <div id="container">
-        <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
-          <input type="file" name="files" id="fileInput" multiple style="display: none;" />
-          <label for="fileInput" id="uploadButton">Upload files here</label>
-        </form>
+      
+      <h1>Upload images</h1>
+      <div id="imagePreviewContainer">
+      <img id="imagePreview" src="#" alt="Preview">
       </div>
+
+     
+      <form method="post" action="/upload" enctype="multipart/form-data">
+        <input type="file" name="image" id="imageInput" onchange="previewImage(event)">
+        <button type="submit">Upload</button>
+      </form>
+
+     
 
       <p id="notification"></p>
 
@@ -20,13 +27,8 @@
         <button id="confirm">Confirm answers and apply</button>
       </a>
       <div id="fileContentContainer"></div>
-      
-      
-
-      
-
     </main>
-       <script src="js/script.js"></script>
+    <%- include('partials/footer') %>
   </body>
 </html>
 

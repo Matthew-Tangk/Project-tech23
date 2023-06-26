@@ -1,36 +1,24 @@
-const handleUpload = () => {
-  const fileInput = document.getElementById("fileInput");
-  const files = fileInput.files;
-  const fileContentContainer = document.getElementById("fileContentContainer");
-  const notification = document.getElementById("notification");
+console.log("I farted");
 
-  for (let i = 0; i < files.length; i++) {
-    const file = files[i];
-    const reader = new FileReader();
+var button = document.querySelector("button");
 
-    reader.onload = (e) => {
-      const fileContent = e.target.result;
-
-      const fileContentElement = document.createElement("p");
-      fileContentElement.textContent = fileContent;
-
-      fileContentContainer.appendChild(fileContentElement);
-    };
-
-    reader.readAsText(file);
-  }
-
-  notification.textContent = "You have successfully uploaded your files.";
-};
-
-document.getElementById("fileInput").addEventListener("change", handleUpload);
-
-document.getElementById("uploadButton").addEventListener("click", handleUpload);
-
-document.addEventListener("DOMContentLoaded", function () {
-  document
-    .getElementById("uploadButton")
-    .addEventListener("click", function () {
-      document.getElementById("fileInput").click();
-    });
+button.addEventListener("click", function () {
+  console.log("I pooped");
 });
+
+function previewImage(event) {
+  const input = event.target;
+  const preview = document.getElementById("imagePreview");
+  const file = input.files[0];
+  const reader = new FileReader();
+
+  reader.onload = function () {
+    preview.src = reader.result;
+  };
+
+  if (file) {
+    reader.readAsDataURL(file);
+  } else {
+    preview.src = "#";
+  }
+}

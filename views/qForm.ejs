@@ -1,12 +1,12 @@
-<%- include('partials/head.ejs') %>
+<%- include('partials/head') %>
 <body>
-  
+  <%- include('partials/header') %>
   <main>
     <h1>Please answer the following questions</h1>
 
     <div >
       <h2>Which instruments do you play?</h2>
-      <ul id="inputForm">
+      <ul class="inputForm">
         <li><input type="radio" name="instrument" value="electric-guitar" />Electric guitar</li>
         <li><input type="radio" name="instrument" value="bass-guitar" />Bass guitar</li>
         <li><input type="radio" name="instrument" value="drums" />Drums</li>
@@ -17,7 +17,7 @@
 
     <div>
       <h2>Have you taken lessons?</h2>
-      <ul id="inputForm">
+      <ul class="inputForm">
         <li><input type="radio" name="lessons" value="more-than-3-years" />Yes, for more than 3 years</li>
         <li><input type="radio" name="lessons" value="more-than-2-years" />Yes, for more than 2 years</li>
         <li><input type="radio" name="lessons" value="over-a-year" />Yes, for over a year</li>
@@ -28,7 +28,7 @@
 
     <div>
       <h2>Are you currently in a band?</h2>
-      <ul id="inputForm">
+      <ul class="inputForm">
         <li><input type="radio" name="bands" value="multiple-bands" />Yes, I am in multiple bands</li>
         <li><input type="radio" name="bands" value="currently-in-band" />Yes, I am currently in a band</li>
         <li><input type="radio" name="bands" value="not-in-band" />No, I am currently not in a band</li>
@@ -39,7 +39,7 @@
 
     <div>
       <h2>Have you played live before?</h2>
-      <ul id="inputForm">
+      <ul class="inputForm">
         <li><input type="radio" name="live" value="played-before" />Yes, I have played live before</li>
         <li><input type="radio" name="live" value="played-once" />Yes, but only once</li>
         <li><input type="radio" name="live" value="never-played" />No, I have never played live before</li>
@@ -47,11 +47,13 @@
       </ul>
     </div>
 
-    <div id="myForm">
-      <a href="./upload">
-        <button>Confirm answers</button>
-      </a>
+    <a href="upload">
+      <button id="myButton">Press Me</button>
+    </a>
+
+    
     </div>
   </main>
+  <%- include('partials/footer') %>
 </body>
 </html>
