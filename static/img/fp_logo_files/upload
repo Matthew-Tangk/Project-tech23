@@ -1,0 +1,69 @@
+<!-- head.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="css/index.css" rel="stylesheet" />
+    <title>question_formFP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Macondo&family=Nunito:wght@200;400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+</html>
+
+  <body>
+   
+    <header>
+  <img
+    src="img/logo.png"
+    alt="logo fastpass"
+    style="height: 90%; margin-right: 5em"
+  />
+</header>
+
+    <noscript>
+      <h1>Upload Image</h1>
+      <h2>This is the header without the image</h2>
+    </noscript>
+    <main>
+    
+      <h2>Upload images</h2>
+
+      <h2 id="uploadHeader">
+        Please select the files that showcase your skill level and
+        experience and upload these in the box below
+      </h2>
+
+      
+  
+      <div id="imagePreviewContainer">
+      <img id="imagePreview" src="#" alt="Preview">
+      </div>
+
+      <noscript>
+        <h2>Please enable JavaScript in order to preview an image</h2>
+      </noscript>
+
+     
+      <form method="post" action="/upload" enctype="multipart/form-data">
+        <input type="file" name="image" id="imageInput" onchange="previewImage(event)">
+        <a href="./thankU.ejs">
+          <button type="submit">Confirm upload and apply</button>
+        </a>
+      </form>
+
+      <p id="notification"></p>
+
+    </main>
+    <footer>
+  <script src="../js/script.js"></script>
+</footer>
+
+  </body>
+</html>
+

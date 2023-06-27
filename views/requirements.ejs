@@ -1,0 +1,33 @@
+<%- include('partials/head') %>
+<body>
+  <%- include('partials/header') %>
+  <main>
+    <h2>Requirements</h2>
+    <p>
+      Before you apply, please make sure you meet the following requirements:
+    </p>
+    <ul class="requirements">
+      <li><p>-You have extensive knowledge of Metallica's discography</p></li>
+      <li><p>-You can play Metallica's greatest hits without fail</p></li>
+      <li><p>-You are available for touring for at least 6 months</p></li>
+      <li><p>-You are not Lars Ulrich</p></li>
+      <li><p>-You are in posession of a passport and are able to travel</p></li>
+    </ul>
+
+    <noscript>
+      <p>Please enable JavaScript to view the map.</p>
+    </noscript>
+
+    <div id="map" style="display: hidden"></div>
+
+    <p>
+      Metallica wil be starting their tour from Amsterdam, The Netherlands.
+      Please make sure you are able to travel to ,and from, this location.
+    </p>
+
+    <a href="./qForm">
+      <button>Sign up</button>
+    </a>
+  </main>
+  <script src="../js/map.js"></script>
+</body>

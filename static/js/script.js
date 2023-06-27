@@ -1,24 +1,47 @@
 console.log("I farted");
 
-var button = document.querySelector("button");
+function previewImages(event) {
+  var previewContainer = document.getElementById("imagePreviews");
+  previewContainer.innerHTML = ""; // Clear the container before adding new images
 
-button.addEventListener("click", function () {
-  console.log("I pooped");
-});
+  var files = event.target.files;
 
-function previewImage(event) {
-  const input = event.target;
-  const preview = document.getElementById("imagePreview");
-  const file = input.files[0];
-  const reader = new FileReader();
+  // Check the number of selected files
+  if (files.length > 3) {
+    // Display an error message or take appropriate action
+    alert("Please select a maximum of three files.");
+    return;
+  }
 
-  reader.onload = function () {
-    preview.src = reader.result;
-  };
+  for (var i = 0; i < files.length; i++) {
+    var file = files[i];
+    var reader = new FileReader();
 
-  if (file) {
+    reader.onload = function (event) {
+      var image = document.createElement("img");
+      image.src = event.target.result;
+
+      // Apply styles to the previewed image
+      image.style.maxWidth = "100%";
+      image.style.maxHeight = "100%";
+      image.style.objectFit = "contain";
+
+      previewContainer.appendChild(image);
+    };
+
     reader.readAsDataURL(file);
-  } else {
-    preview.src = "#";
   }
 }
+
+function validateForm(event) {
+  const fileInput = document.getElementById("imageInput");
+  if (!fileInput.files || fileInput.files.length === 0) {
+    event.preventDefault(); // Prevent form submission
+    alert("Please upload at least one file."); // Show an error message
+  }
+}
+
+document.getElementById("uploadReq").addEventListener("submit", validateForm);
+
+var noscriptElement = document.querySelector("noscript");
+noscriptElement.style.display = "none";

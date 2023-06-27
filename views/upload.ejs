@@ -1,34 +1,33 @@
 <%- include('partials/head') %>
-  <body>
-    <%- include('partials/header') %>
-    <main>
-      <h2 id="uploadHeader">
-        Please select the files that showcase your skill level and
-        experience and upload these in the box below
-      </h2>
+<body>
+  <%- include('partials/header') %>
+  <main>
+    <h2>Upload files</h2>
+    <p>
+      Please select up to three files that showcase your skill level and experience and upload them in the box below
+    </p>
+    <div id="imagePreviewContainer">
+      <noscript>
+        <p>Please enable JavaScript to preview an image</p>
+      </noscript>
+      <div id="imagePreviews"></div>
+    </div>
 
-      
-      <h1>Upload images</h1>
-      <div id="imagePreviewContainer">
-      <img id="imagePreview" src="#" alt="Preview">
-      </div>
-
-     
-      <form method="post" action="/upload" enctype="multipart/form-data">
-        <input type="file" name="image" id="imageInput" onchange="previewImage(event)">
-        <button type="submit">Upload</button>
-      </form>
-
-     
-
-      <p id="notification"></p>
-
-      <a href="./finish">
-        <button id="confirm">Confirm answers and apply</button>
+    <fieldset>
+      <legend>Fill in the info below</legend>
+    <form id="uploadReq" method="post" action="/upload" enctype="multipart/form-data">
+      <input  type="file" 
+              name="image" 
+              id="imageInput" 
+              onchange="previewImages(event)" 
+              multiple required >
+      <a href="./thankU.ejs">
+        <button type="submit">Confirm upload and apply</button>
       </a>
-      <div id="fileContentContainer"></div>
-    </main>
-    <%- include('partials/footer') %>
+    </form>
+  </fieldset> 
+  </main>
+  <%- include('partials/footer') %>
   </body>
 </html>
 

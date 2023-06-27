@@ -52,6 +52,10 @@ app
     res.render("index.ejs");
   })
 
+  .get("/requirements", (req, res) => {
+    res.render("requirements.ejs");
+  })
+
   .get("/qform", (req, res) => {
     res.render("qForm.ejs");
   })
@@ -59,10 +63,6 @@ app
   .get("/finish", (req, res) => {
     res.render("thankU.ejs");
   });
-
-function onhome(req, res) {
-  res.send("<h1>This is a testrun.</h1>");
-}
 
 ////////// UPLOAD FILES //////////
 
@@ -78,14 +78,19 @@ const storage = multer.diskStorage({
   },
 });
 
-const upload = multer({ storage: storage });
+const upload = multer({ storage: storage, limits: { files: 3 } }); // Set limits to allow up to 3 files
 
 app.get("/upload", (req, res) => {
   res.render("upload.ejs");
 });
 
-app.post("/upload", upload.single("image"), (req, res) => {
-  res.render("thankU.ejs", { imageURL: req.file.filename });
+// Use upload.array to handle multiple files (up to 3)
+app.post("/upload", upload.array("image", 3), (req, res) => {
+  res.render("thankU.ejs", {
+    imageURLs: req.files.map((file) => file.filename),
+  });
 });
+
+////////// GOOGLE MAPS//////////
 
 app.listen(420);
