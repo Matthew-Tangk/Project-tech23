@@ -1,24 +1,26 @@
-console.log("Welcome to FastPass");
-const express = require("express");
+import express from "express";
+import { static as expressStatic } from "express";
+import { urlencoded, json } from "express";
+import { config as dotenvConfig } from "dotenv";
+import { MongoClient } from "mongodb";
+import multer from "multer";
+import path from "path";
+
 const app = express();
-const path = require("path");
+const port = 420;
 
-app
-  .use(express.static("static"))
-  .set("view engine", "ejs")
-  .set("views", "views");
+app.use(expressStatic("static"));
+app.set("view engine", "ejs");
+app.set("views", "views");
+app.use(urlencoded({ extended: true }));
+app.use(json());
+dotenvConfig();
 
-require("dotenv").config(); // Load environment variables from .env file
-
-////////// SET-UP MONGODB CONNECTION //////////
-
-const { MongoClient, ServerApiVersion } = require("mongodb");
 const uri = process.env.MONGODB_URI;
 
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
   serverApi: {
-    version: ServerApiVersion.v1,
+    version: "1",
     strict: true,
     deprecationErrors: true,
   },
@@ -30,67 +32,57 @@ app.post("/qform", (req, res) => {
 
 async function run() {
   try {
-    // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
-    // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
     console.log(
       "Pinged your deployment. You successfully connected to MongoDB!"
     );
-    console.log("Connected successfully to port 420");
+    console.log("Connected successfully to port", port);
   } finally {
-    // Ensures that the client will close when you finish/error
     await client.close();
   }
 }
+
 run().catch(console.dir);
 
-////////// SET-UP ROUTES  //////////
+app.route("/metallica").get((req, res) => {
+  res.render("index.ejs");
+});
 
-app
-  .get("/metallica", (req, res) => {
-    res.render("index.ejs");
-  })
+app.route("/requirements").get((req, res) => {
+  res.render("requirements.ejs");
+});
 
-  .get("/requirements", (req, res) => {
-    res.render("requirements.ejs");
-  })
+app.route("/qform").get((req, res) => {
+  res.render("qForm.ejs");
+});
 
-  .get("/qform", (req, res) => {
-    res.render("qForm.ejs");
-  })
-
-  .get("/finish", (req, res) => {
-    res.render("thankU.ejs");
-  });
-
-////////// UPLOAD FILES //////////
-
-const multer = require("multer");
+app.route("/finish").get((req, res) => {
+  res.render("thankU.ejs");
+});
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "images");
   },
   filename: (req, file, cb) => {
-    console.log(file);
-    cb(null, Date.now() + path.extname(file.originalname));
+    cb(null, `${Date.now()}${path.extname(file.originalname)}`);
   },
 });
 
-const upload = multer({ storage: storage, limits: { files: 3 } }); // Set limits to allow up to 3 files
+const upload = multer({ storage, limits: { files: 3 } });
 
-app.get("/upload", (req, res) => {
-  res.render("upload.ejs");
-});
-
-// Use upload.array to handle multiple files (up to 3)
-app.post("/upload", upload.array("image", 3), (req, res) => {
-  res.render("thankU.ejs", {
-    imageURLs: req.files.map((file) => file.filename),
+app
+  .route("/upload")
+  .get((req, res) => {
+    res.render("upload.ejs");
+  })
+  .post(upload.array("image", 3), (req, res) => {
+    res.render("thankU.ejs", {
+      imageURLs: req.files.map((file) => file.filename),
+    });
   });
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
-
-////////// GOOGLE MAPS//////////
-
-app.listen(420);

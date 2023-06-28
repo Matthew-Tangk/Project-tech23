@@ -1,10 +1,10 @@
-console.log("I farted");
+console.log("Hello from script.js!");
 
-function previewImages(event) {
-  var previewContainer = document.getElementById("imagePreviews");
+const previewImages = (event) => {
+  const previewContainer = document.getElementById("imagePreviews");
   previewContainer.innerHTML = ""; // Clear the container before adding new images
 
-  var files = event.target.files;
+  const files = event.target.files;
 
   // Check the number of selected files
   if (files.length > 3) {
@@ -13,12 +13,11 @@ function previewImages(event) {
     return;
   }
 
-  for (var i = 0; i < files.length; i++) {
-    var file = files[i];
-    var reader = new FileReader();
+  for (const file of files) {
+    const reader = new FileReader();
 
-    reader.onload = function (event) {
-      var image = document.createElement("img");
+    reader.onload = (event) => {
+      const image = document.createElement("img");
       image.src = event.target.result;
 
       // Apply styles to the previewed image
@@ -31,17 +30,17 @@ function previewImages(event) {
 
     reader.readAsDataURL(file);
   }
-}
+};
 
-function validateForm(event) {
+const validateForm = (event) => {
   const fileInput = document.getElementById("imageInput");
   if (!fileInput.files || fileInput.files.length === 0) {
     event.preventDefault(); // Prevent form submission
     alert("Please upload at least one file."); // Show an error message
   }
-}
+};
 
 document.getElementById("uploadReq").addEventListener("submit", validateForm);
 
-var noscriptElement = document.querySelector("noscript");
+const noscriptElement = document.querySelector("noscript");
 noscriptElement.style.display = "none";
